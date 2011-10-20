@@ -36,12 +36,6 @@ class MY_Controller extends CI_Controller {
         // Load the view into the data
         $this->data['yield'] = $this->load->view($view, $this->data, TRUE);
 
-        // Get or automatically set the sidebar name
-        $sidebar = ($this->sidebar !== null) ? $this->sidebar . '.php' : $this->router->directory . 'sidebar/' . $this->router->class . '.php';
-
-        // Load the sidebar into the data
-        $this->data['sidebar'] = $this->load->view($sidebar, $this->data, TRUE);
-
         // Display the layout with the view
         $this->load->view($layout, $this->data);
     }
