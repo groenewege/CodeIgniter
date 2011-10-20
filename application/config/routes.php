@@ -38,7 +38,9 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['page/(\d+)/[a-zA-Z 0-9~%.:_-]*']				= "page/show/$1";
+
+$route['default_controller'] = "home";
 $route['404_override'] = '';
 
 

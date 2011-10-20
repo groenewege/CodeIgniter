@@ -1,0 +1,6 @@
+SetEnv PHP_VER 5
+
+RewriteEngine on
+
+RewriteCond $1 !^(index\.php|index\.html|favicon\.ico|apple-touch-icon\.png|css|img|js|font|uploads|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L]
