@@ -44,21 +44,21 @@ class Frontend extends MY_Controller {
     protected function _pagination_config()
     {
         $config = array();
-        $config['full_tag_open']    = '<ol class="pagination">';
-        $config['full_tag_close']   = '</ol>';
+        $config['full_tag_open']    = '<ul class="pagination">';
+        $config['full_tag_close']   = '</ul>';
         $config['first_link']       = '';
         $config['first_tag_open']   = '';
         $config['first_tag_close']  = '';
         $config['last_link']        = '';
         $config['last_tag_open']    = '';
         $config['last_tag_close']   = '';
-        $config['cur_tag_open']     = '<li class="current"><a href="#">';
+        $config['cur_tag_open']     = '<li class="active"><a href="#">';
         $config['cur_tag_close']    = '</a></li>';
         $config['prev_link']        = '&laquo;';
-        $config['prev_tag_open']    = '<li>';
+        $config['prev_tag_open']    = '<li class="prev">';
         $config['prev_tag_close']   = '</li>';
         $config['next_link']        = '&raquo;';
-        $config['next_tag_open']    = '<li>';
+        $config['next_tag_open']    = '<li class="next">';
         $config['next_tag_close']   = '</li>';
         $config['num_tag_open']     = '<li>';
         $config['num_tag_close']    = '</li>';

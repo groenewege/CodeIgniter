@@ -6,16 +6,20 @@
 		<p><code>application/views/home/index.php</code></p>
 		<p>The corresponding controller for this page is found at:</p>
 		<p><code>application/controllers/home.php</code></p>
+		<div class="pagination"><?php echo $pagination; ?></div>
 	</div>
 	<div class="span6">
 		<div class="well">
-		<?php echo $this->formbuilder->open( 'user/edit_save', FALSE, array( 'class'=>'form-stacked' ));	 ?>
+		<?php echo $this->formbuilder->open('home/index', FALSE, array( 'class'=>'form-stacked')); ?>
 		<h3>Formbuilder example</h3>
 		<?php 
-		echo $this->formbuilder->text( 'username', 'Username' );
-		echo $this->formbuilder->password( 'password', 'Password' );
-		echo $this->formbuilder->close();
+		echo $this->formbuilder->text('username', 'Username');
+		echo $this->formbuilder->password('password', 'Password');
 		?>
+		<div style="margin-top:10px;">
+			<?php echo $this->formbuilder->submit('send', 'send', array('class' => 'btn primary')); ?>
+		</div>
+		<?php echo $this->formbuilder->close(); ?>
 		</div>
 	</div>
 </div>
