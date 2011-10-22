@@ -20,9 +20,11 @@
                     <span><?php echo __('gg_administration'); ?></span>
                 </a>
                 <ul class="nav secondary-nav">
-                    <li><?php echo anchor('admin/user/logout', __('gg_logout')); ?></li>
+                    <?php if ($is_logged_in): ?>
+                        <li><?php echo anchor('admin/user/logout', __('gg_logout')); ?></li>    
+                    <?php endif ?>
                     <?php if (defined('ENVIRONMENT') && ENVIRONMENT == 'development'): ?>
-                    <li><a href="#" id="toggleButton">profiler</a></li>
+                        <li><a href="#" id="toggleButton">profiler</a></li>
                     <?php endif ?>
                 </ul>  
             </div>

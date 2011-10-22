@@ -8,7 +8,7 @@
             <?php 
             echo $this->formbuilder->text( 'identity', __('gg_email') );
             echo $this->formbuilder->password( 'password', __('gg_password') );
-            echo $this->formbuilder->checkbox( 'remember', __('gg_remember_me'), FALSE, FALSE );
+            echo $this->formbuilder->checkbox( 'remember', __('gg_remember_me'), '1', FALSE );
             ?>
             <?php echo $this->formbuilder->submit('submit', __('gg_login'), array('class' => 'btn primary')); ?>
             <?php echo $this->formbuilder->close(); ?>

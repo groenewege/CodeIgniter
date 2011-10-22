@@ -65,6 +65,7 @@ class Backend extends MY_Controller {
     	$this->data['site_title'] = $this->config->item('site_title', 'gg_admin');
         $this->data['meta_title'] = $this->data['site_title'];
     	$this->data['section'] = strtolower(get_class($this));
+        $this->data['is_logged_in'] = $this->ion_auth->logged_in();
     }
 
     /**
