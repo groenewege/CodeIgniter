@@ -47,6 +47,20 @@ if (defined('ENVIRONMENT'))
 }
 
 /*
+|---------------------------------------------------------------
+| DEFAULT INI SETTINGS
+|---------------------------------------------------------------
+|
+| Necessary settings for a higher compatibility. Inspired by PyroCMS code.
+|
+*/
+	// PHP 5.3 requires this
+	if(ini_get('date.timezone') == '')
+	{
+		date_default_timezone_set('GMT');
+	}
+
+/*
  *---------------------------------------------------------------
  * SYSTEM FOLDER NAME
  *---------------------------------------------------------------

@@ -13,8 +13,8 @@
 		<?php echo $this->formbuilder->open('home/index', FALSE, array( 'class'=>'form-stacked')); ?>
 		<h3>Formbuilder example</h3>
 		<?php 
-		echo $this->formbuilder->text('username', 'Username');
-		echo $this->formbuilder->password('password', 'Password');
+		echo $this->formbuilder->text( 'first_name', 'Your First Name' );
+		echo $this->formbuilder->text( 'last_name', 'Your Last Name' );
 		?>
 		<div style="margin-top:10px;">
 			<?php echo $this->formbuilder->submit('send', 'send', array('class' => 'btn primary')); ?>

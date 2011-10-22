@@ -1,3 +1,6 @@
 [submodule "application/third_party/formbuilder"]
 	path = application/third_party/formbuilder
 	url = git://github.com/dperrymorrow/Formbuilder.git
+[submodule "application/third_party/ion-auth"]
+	path = application/third_party/ion-auth
+	url = git://github.com/benedmunds/CodeIgniter-Ion-Auth.git

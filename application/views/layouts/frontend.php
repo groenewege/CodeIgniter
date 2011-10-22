@@ -19,8 +19,9 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">CodeIgniter Boilerplate</a>
+          <a class="brand" href="/">CodeIgniter Boilerplate</a>
           <ul class="nav secondary-nav">
+            <li><?php echo anchor('admin/home/index', 'admin'); ?></li>
             <li><a href="#" id="toggleButton">profiler</a></li>
           </ul>
         </div>

@@ -6,6 +6,7 @@ Class Home extends Frontend {
 
 	public function index()
     {
+        $this->load->add_package_path(APPPATH.'third_party/formbuilder/');
         $this->load->library('formbuilder');
         $this->update_meta('Home');
 

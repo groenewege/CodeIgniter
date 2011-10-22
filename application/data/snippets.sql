@@ -1,4 +1,4 @@
-CREATE TABLE `ci_snippets` (
+CREATE TABLE `snippets` (
   `id` smallint(11) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(50) NOT NULL DEFAULT '',
   `value` text NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE `ci_snippets` (
   UNIQUE KEY `code` (`code`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `ci_snippets` (`id`, `code`, `value`, `info`, `type`)
+INSERT INTO `snippets` (`id`, `code`, `value`, `info`, `type`)
 VALUES
   (1, 'meta_title', 'CodeIgniter', 'website title', 'input'),
   (2, 'meta_description', 'CodeIgniter boilerplate website', 'website description', 'input'),
