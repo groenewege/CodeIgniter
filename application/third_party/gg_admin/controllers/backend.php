@@ -24,6 +24,7 @@ class Backend extends MY_Controller {
         $this->load->library('ion_auth');
         $this->load->add_package_path(APPPATH.'third_party/gg_admin/');
         $this->load->library('gg_admin');
+        $this->lang->load('gg_admin');
         
         if ($this->skip_auth === FALSE) {
             if (!$this->ion_auth->logged_in())
@@ -53,7 +54,7 @@ class Backend extends MY_Controller {
      */
     public function update_meta($name)
     {
-    	$this->data['meta_title'] = $name . ' | ' . $this->data['meta_title'];
+        $this->data['meta_title'] = $name . ' | ' . $this->data['meta_title'];
     }
 
     /**

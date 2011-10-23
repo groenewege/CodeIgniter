@@ -1,4 +1,4 @@
 <div class="hero-unit">
-	<h1>Administration</h1>
-	<p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+	<h1><?php echo __('gg_administration'); ?></h1>
+	<p><?php echo __('gg_admin_description'); ?></p>
 </div>

@@ -2368,3 +2368,11 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   font-variant: small-caps;
   color: #049cdb;
 }
+footer p {
+  text-align: center;
+  color: #bfbfbf;
+  font-size: 11px;
+}
+footer p a {
+  color: #808080;
+}

@@ -13,5 +13,7 @@
             <?php echo $this->formbuilder->submit('submit', __('gg_login'), array('class' => 'btn primary')); ?>
             <?php echo $this->formbuilder->close(); ?>
         </div>
+        <p><?php echo __('gg_admin_description'); ?></p>
     </div>
+    <div class="span10"><?php echo img('img/admin_image.jpg'); ?></div>
 </div>

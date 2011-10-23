@@ -33,6 +33,9 @@
 
     <div id="main" role="main" class="container">
         <?php echo $yield; ?>
+        <footer>
+            <p>made by g-design.net &nbsp; : : &nbsp; +33 1 44 90 01 19 &nbsp; : : &nbsp; <a href="mailto:info@g-design.net">info@g-design.net</a></p>
+      </footer>
     </div>
 
     <script src="/js/libs/jquery-1.6.4.min.js"></script>
