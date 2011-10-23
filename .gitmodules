@@ -1,3 +1,6 @@
 [submodule "application/third_party/ion-auth"]
 	path = application/third_party/ion-auth
 	url = git://github.com/benedmunds/CodeIgniter-Ion-Auth.git
+[submodule "application/third_party/gg_admin"]
+	path = application/third_party/gg_admin
+	url = git@bitbucket.org:groenewege/gg_admin.git
