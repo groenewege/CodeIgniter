@@ -1,0 +1,1 @@
+../third_party/gg_admin/config/gg_admin_default.php
