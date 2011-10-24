@@ -1,9 +1,12 @@
 [submodule "application/third_party/ion-auth"]
 	path = application/third_party/ion-auth
 	url = git://github.com/benedmunds/CodeIgniter-Ion-Auth.git
-[submodule "application/third_party/gg_admin"]
-	path = application/third_party/gg_admin
-	url = git@bitbucket.org:groenewege/gg_admin.git
 [submodule "application/third_party/spark_menu"]
 	path = application/third_party/spark_menu
 	url = git://github.com/Barnabas/Spark-Menu.git
+[submodule "application/third_party/bootstrap"]
+	path = application/third_party/bootstrap
+	url = git://github.com/twitter/bootstrap.git
+[submodule "application/third_party/gg_admin"]
+	path = application/third_party/gg_admin
+	url = git@bitbucket.org:groenewege/gg_admin.git
