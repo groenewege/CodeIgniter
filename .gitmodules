@@ -10,3 +10,6 @@
 [submodule "application/third_party/spark_menu"]
 	path = application/third_party/spark_menu
 	url = git@github.com:groenewege/Spark-Menu.git
+[submodule "application/third_party/gas_orm"]
+	path = application/third_party/gas_orm
+	url = git://github.com/toopay/CI-GasORM-Library.git

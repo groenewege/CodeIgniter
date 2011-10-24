@@ -29,10 +29,10 @@ class Frontend extends MY_Controller {
      */
     private function _build_meta()
     {
-    	$this->load->model('Snippet_model');
-    	$this->data['meta_title'] = $this->Snippet_model->retrieve_by_key('meta_title');
-    	$this->data['meta_description'] = $this->Snippet_model->retrieve_by_key('meta_description');
-    	$this->data['meta_keywords'] = $this->Snippet_model->retrieve_by_key('meta_keywords');
+    	$snippet = new Snippet();
+    	$this->data['meta_title'] = $snippet->retrieve_by_key('meta_title');
+    	$this->data['meta_description'] = $snippet->retrieve_by_key('meta_description');
+    	$this->data['meta_keywords'] = $snippet->retrieve_by_key('meta_keywords');
 
     	$this->data['title'] = $this->data['meta_title'];
     	$this->data['section'] = strtolower(get_class($this));
