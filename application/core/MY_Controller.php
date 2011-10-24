@@ -3,8 +3,6 @@
 class MY_Controller extends CI_Controller {
     protected $data;
     protected $view;
-    protected $menu;
-    protected $sidebar;
     protected $layout;
 
     /**

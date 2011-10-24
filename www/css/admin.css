@@ -2376,3 +2376,54 @@ footer p {
 footer p a {
   color: #808080;
 }
+.dashboard {
+  margin-left: -20px;
+  margin-bottom: 0;
+  zoom: 1;
+}
+.dashboard:before, .dashboard:after {
+  display: table;
+  content: "";
+  zoom: 1;
+  *display: inline;
+}
+.dashboard:after {
+  clear: both;
+}
+.dashboard li {
+  display: inline;
+}
+.dashboard a {
+  float: left;
+  width: 208px;
+  height: 150px;
+  padding: 20px 5px;
+  margin: 0 0 20px 20px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+}
+.dashboard a img {
+  display: block;
+}
+.dashboard a:hover {
+  border-color: #0069d6;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+  -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+  box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+#dash_user a {
+  background: transparent url(../img/dash_user.png) no-repeat center center;
+}
+#dash_configuration a {
+  background: transparent url(../img/dash_configuration.png) no-repeat center center;
+}
