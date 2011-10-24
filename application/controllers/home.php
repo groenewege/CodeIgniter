@@ -19,5 +19,9 @@ Class Home extends Frontend {
 		$config['num_links'] 	= 5;
 		$this->pagination->initialize($config);
 		$this->data['pagination'] 	= $this->pagination->create_links();
+
+        $this->load->add_package_path(APPPATH.'third_party/gg_admin/');
+        $this->load->model('Page_model');
+        $this->data['pages'] = $this->Page_model->get_all();
     }
 }

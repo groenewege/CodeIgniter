@@ -6,6 +6,12 @@
 		<p><code>application/views/home/index.php</code></p>
 		<p>The corresponding controller for this page is found at:</p>
 		<p><code>application/controllers/home.php</code></p>
+		<h3>Pages</h3>
+		<p>
+		<?php foreach ($pages as $page): ?>
+			<?php echo htmlentities($page->title, ENT_QUOTES, 'utf-8'); ?> - 
+		<?php endforeach ?>
+		</p>
 		<div class="pagination"><?php echo $pagination; ?></div>
 	</div>
 	<div class="span6">
