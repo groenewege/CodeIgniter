@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.1.37-log)
 # Database: codeigniter
-# Generation Time: 2011-10-24 12:12:16 +0000
+# Generation Time: 2011-10-24 23:56:09 +0000
 # ************************************************************
 
 
@@ -42,13 +42,9 @@ INSERT INTO `page` (`id`, `title`, `content`, `created_at`, `status`)
 VALUES
 	(1,'exhibition 1','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n<p>\n<object width=\"320\" height=\"265\">\n<param name=\"movie\" value=\"http://www.youtube.com/v/CQzUsTFqtW0&amp;hl=en_US&amp;fs=1&amp;\" />\n<param name=\"allowFullScreen\" value=\"true\" />\n<param name=\"allowscriptaccess\" value=\"always\" /><embed type=\"application/x-shockwave-flash\" width=\"320\" height=\"265\" src=\"http://www.youtube.com/v/CQzUsTFqtW0&amp;hl=en_US&amp;fs=1&amp;\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>\n</object>\n</p>','2008-05-01',1),
 	(2,'exhibition 2','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  <a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>','2008-06-01',1),
-	(9,'exhibition 3','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n<a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a>\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>','2008-02-01',0),
-	(10,'exhibition 4','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n<a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a>\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>','2008-02-01',1),
-	(11,'exhibition 5','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n<a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a>\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>','2007-12-05',1),
-	(12,'exhibition 6','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n<a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a>\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>','2008-03-01',1),
-	(13,'exhibition 7','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  <a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>','2008-06-10',1),
-	(14,'exhibition A','<p>test <strong>lorem</strong> ipsum <a href=\"http://www.google.com\">dolor</a> si</p>','2007-03-11',1),
-	(15,'exhibition B',NULL,'2008-09-01',1);
+	(3,'exhibition 3','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n<a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a>\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>','2008-02-01',0),
+	(4,'exhibition 4','<p><strong>tuesday - saturday | 11h-19h</strong></p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n<a href=\"http://www.galeriebluesquare.com/artist/1/vagrich-bakhchanyan\">link to artist</a>\nExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>','2008-02-01',1),
+	(5,'exhibition 5','','2007-12-05',1);
 
 /*!40000 ALTER TABLE `page` ENABLE KEYS */;
 UNLOCK TABLES;
