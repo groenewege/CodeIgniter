@@ -34,7 +34,7 @@ class Snippet extends Gas {
     private function _populate()
     {
         if (empty($this->collection)) {
-            foreach ($this->all() as $snippet) {
+            foreach ($this->select('id, code, value')->all() as $snippet) {
                 $this->collection[$snippet->code] = $snippet->value;
             }
         }
