@@ -2,7 +2,11 @@
 
 class Page extends Gas {
 	
-	function _init()
+	 public $relations = array(
+                            'has_one' => array('page_image' => array()),
+                        );
+
+    function _init()
     {
         $this->_fields = array(
           'id'              => Gas::field('auto'),
