@@ -13,3 +13,6 @@
 [submodule "application/third_party/gas_orm"]
 	path = application/third_party/gas_orm
 	url = git@github.com:groenewege/CI-GasORM-Library.git
+[submodule "application/third_party/formbuilder"]
+	path = application/third_party/formbuilder
+	url = git@github.com:groenewege/Formbuilder.git
