@@ -17,12 +17,36 @@ class Page_image extends Gas {
         );
     }
 
+    public function full_path()
+    {
+        if ($this->image) {
+            return '/uploads/'.$this->image;
+        }
+        return false;
+    }
+
+    public function small_path()
+    {
+        if ($this->image) {
+            return '/uploads/thumbs/'.$this->image;
+        }
+        return false;
+    }
+
     public function get_thumb()
     {
         if ($this->image) {
             return img('uploads/thumbs/'.$this->image);
         }
         return '';
+    }
+
+    public function clean_up()
+    {
+        if ($this->image) {
+            @unlink('.'.$this->full_path());
+            @unlink('.'.$this->small_path());
+        }
     }
 
 }
