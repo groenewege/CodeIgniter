@@ -5,9 +5,6 @@ class Page_image extends Gas {
 	public $relations = array(
                             'belongs_to' => array('page' => array()),
                         );
-    
-    public $parent_id = 'page_id';
-    public $parent_class = 'Page';
 
     function _init()
     {

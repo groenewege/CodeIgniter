@@ -5,6 +5,9 @@ $(function() {
   		$('#codeigniter_profiler').toggle();
   		e.preventDefault();
 	});
-   $('.alert-message').hide().fadeIn('slow'); 
+	$('.alert-message').hide().fadeIn(); 
+	setTimeout(function() {
+  		$(".success").fadeOut();
+	}, 3000); 
 
 });
