@@ -1,0 +1,1 @@
+../../application/third_party/gg_admin/assets/js/admin.js
