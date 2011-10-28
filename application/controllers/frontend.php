@@ -8,6 +8,8 @@ class Frontend extends MY_Controller {
         if (defined('ENVIRONMENT') && ENVIRONMENT == 'development') {
         	$this->output->enable_profiler(TRUE);
         }
+        $this->load->add_package_path(APPPATH.'third_party/gas_orm/');
+        $this->load->library('gas');
         $this->layout = "layouts/frontend";
     }
 
