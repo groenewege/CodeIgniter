@@ -23,3 +23,11 @@
 
 	git remote add origin git@bitbucket.org:groenewege/project.git
 	git push origin master
+
+## pull from boilerplate
+
+	git fetch boilerplate
+	git checkout boilerplate
+	git rebase boilerplate/boilerplate
+	git checkout master
+	git rebase boilerplate
