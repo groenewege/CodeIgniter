@@ -2,7 +2,7 @@
 
 class Page extends Gas {
 	
-	 public $relations = array(
+    public $relations = array(
                             'has_one' => array('page_image' => array()),
                         );
 
