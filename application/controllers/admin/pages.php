@@ -21,9 +21,7 @@
         		array( 	'status'        => array( 'rule' => '', 'type' => 'boolean'),
 	        			'title'  		=> array( 'rule' => 'required', 'type' => 'text'),
         				'content'       => array( 'rule' => '', 'type' => 'tinymce'),
-                      	'created_at'    => array( 'rule' => '', 'type' => 'date'),
-                        'other'         => array( 'rule' => '', 'type' => 'select', 'method' => 'drop_down'),
-                        'other2'        => array( 'rule' => '', 'type' => 'multi-select', 'method' => 'drop_down')
+                      	'created_at'    => array( 'rule' => '', 'type' => 'date')
                 ));
         	$this->set_default_sort('title');
     	}
@@ -36,13 +34,17 @@
     		redirect( list_url( $this->url_vals, 'images/index', FALSE ) );
     	}
 
-        public function drop_down()
+        /**
+        * Post process the $details array 
+        * @param   array   $details    the $details that will be saved
+        * @return  array   the modified $details array
+        */
+        protected function form_proccess($details)
         {
-            $drop_down = array();
-            foreach ($this->crud_model->select('id, title')->all() as $item) {
-                $drop_down[$item->id] = $item->title;
-            }
-            return $drop_down;
+            $details['created_at'] =    $this->input->post('created_at_year').'-'.
+                                        $this->input->post('created_at_month').'-'.
+                                        $this->input->post('created_at_day');
+            return $details;
         }
 
 	}	
