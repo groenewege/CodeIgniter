@@ -17,17 +17,48 @@
         																 'url'     => 'down' )));
         	$this->set_option('edit',   
                 array(  'page_id'       => array( 'rule' => '', 'type' => 'hidden'),
-                        'title'         => array( 'rule' => 'required', 'type' => 'text'),
-                        'image'         => array( 'rule' => '', 'type' => 'image', 'show' => 'small_path')
+                        'title'         => array( 'rule' => '', 'type' => 'text'),
+                        'image'         => array( 'rule' => 'required', 'type' => 'image', 'show' => 'small_path')
                 ));   
 
+            $this->set_option('rank_field', 'rank');
             $this->set_default_sort('rank');
             $this->set_parent_info('page');
     	}
 
+        public function post_edit($changed_object)
+        {
+            $changed_object->clean_up();
+        }
+
         public function post_delete($deleted_object)
         {
             $deleted_object->clean_up();
+        }
+
+        public function handle_image($fileInfo = array())
+        {
+            $this->load->library('image_lib');
+
+            // Resizing
+            $config['source_image'] = $fileInfo['full_path'];
+            $config['maintain_ratio'] = TRUE;
+            $config['master_dim'] = 'auto';
+            
+            // Resizing LARGE
+            if ($fileInfo['image_width'] > 800 || $fileInfo['image_height'] > 600) {
+                $config['width'] = 800;
+                $config['height'] = 600;
+                $this->image_lib->initialize($config);
+                $this->image_lib->resize();
+            }
+            
+            // Resizing SMALL
+            $config['new_image'] = $fileInfo['file_path'] . 'thumbs/';
+            $config['width'] = 150;
+            $config['height'] = 150;
+            $this->image_lib->initialize($config);
+            $this->image_lib->resize();
         }
 
 	}	
