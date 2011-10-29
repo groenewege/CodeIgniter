@@ -1,1 +1,1 @@
-../third_party/gg_admin/controllers/admin/home.php
+../../third_party/gg_admin/controllers/admin/home.php
