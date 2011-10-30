@@ -26,11 +26,6 @@
             $this->set_parent_info('page');
     	}
 
-        public function post_edit($changed_object)
-        {
-            $changed_object->clean_up();
-        }
-
         public function post_delete($deleted_object)
         {
             $deleted_object->clean_up();
