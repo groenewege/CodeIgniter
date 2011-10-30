@@ -34,6 +34,14 @@
     		redirect( list_url( $this->url_vals, 'images/index', FALSE ) );
     	}
 
+        public function files()
+        {
+            $parent_id = $this->uri->segment($this->uri->total_segments());
+            $this->clear_url_vals();
+            $this->set_parent_id($parent_id);
+            redirect( list_url( $this->url_vals, 'files/index', FALSE ) );
+        }
+
         /**
         * Post process the $details array 
         * @param   array   $details    the $details that will be saved
