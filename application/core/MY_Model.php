@@ -104,6 +104,11 @@ class MY_Model extends CI_Model {
 		
 		$this->_fetch_table();
 	}
+
+	public function get_primary_key()
+	{
+		return $this->primary_key;
+	}
 	
 	/**
 	 * Get a single record by creating a WHERE clause with
@@ -213,6 +218,91 @@ class MY_Model extends CI_Model {
 	 */
 	public function count_all_results() {
 		return $this->db->count_all_results($this->_table);
+	}
+
+	/**
+	 * Return information about every field in the table
+	 * @return array
+	 */
+	public function field_data()
+	{
+		return $this->db->field_data($this->_table);
+	}
+
+	/**
+	 * Return the row with maximum value of a field
+	 * @param type $field 
+	 * @return type
+	 */
+	public function max($field)
+	{
+		$this->db->select_max($field)->from($this->_table)->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+		   $row = $query->row(); 
+		   return (int) $row->$field;
+		} else {
+			return 0;
+		}
+	}
+
+	/**
+	 * Return the row with minimum value of a field
+	 * @param type $field 
+	 * @return type
+	 */
+	public function min($field)
+	{
+		$this->db->select_min($field)->from($this->_table)->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+		   $row = $query->row(); 
+		   return (int) $row->$field;
+		} else {
+			return 0;
+		}
+	}
+
+	/**
+	 * first
+	 * 
+	 * Get first record
+	 *
+	 * @access	public
+	 * @param   string
+	 * @return	array  array of result(s) object
+	 */
+	public function first($column = null)
+	{
+		$this->_run_before_get();
+		$this->db->order_by((is_null($column)) ? $this->primary_key : $column, 'asc'); 
+		$this->db->limit(1);
+		
+		$row = $this->db->get($this->_table)->row(0, get_class($this));
+		
+		$this->_run_after_get($row);
+		return $row;
+	}
+
+	/**
+	 * last
+	 * 
+	 * Get last record
+	 *
+	 * @access	public
+	 * @param   string
+	 * @return	array  array of result(s) object
+	 */
+	public function last($column = null)
+	{
+		$this->_run_before_get();
+		$this->db->order_by((is_null($column)) ? $this->primary_key : $column, 'desc'); 
+		$this->db->limit(1);
+		
+		$row = $this->db->get($this->_table)->row(0, get_class($this));
+		
+		$this->_run_after_get($row);
+		return $row;
 	}
 	
 	/**

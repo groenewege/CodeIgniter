@@ -1,21 +1,16 @@
 <?php if (! defined('BASEPATH')) exit('No direct script access');
 
-class Page_image extends Gas {
+class Page_image extends MY_Model {
 	
-	public $relations = array(
+	public $id = '';
+    public $page_id = '';
+    public $title = '';
+    public $image = '';
+    public $rank = '';
+
+    public $relations = array(
                             'belongs_to' => array('page' => array()),
                         );
-
-    function _init()
-    {
-        $this->_fields = array(
-          'id'              => Gas::field('auto'),
-          'page_id'         => Gas::field('int[11]'),
-          'title'           => Gas::field('char[250]'),
-          'image'           => Gas::field('char'),
-          'rank'            => Gas::field('int[11]'),
-        );
-    }
 
     public function full_path()
     {

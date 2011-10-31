@@ -7,7 +7,7 @@
 		public function __construct()
     	{
         	parent::__construct();
-        	$this->crud_model = new Snippet();
+            $this->load->model('Snippet', 'crud_model');
         	$this->set_option('list', array('info'));
             $this->set_option('add', FALSE);
             $this->set_option('delete', FALSE);

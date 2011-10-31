@@ -7,7 +7,7 @@
 		public function __construct()
     	{
         	parent::__construct();
-        	$this->crud_model = new Page_image();
+        	$this->load->model('Page_image', 'crud_model');   
             $this->set_option('per_page', 3);
         	$this->set_option('list', array('image'));
         	$this->set_option('accessors', array('image' => 'get_thumb'));
@@ -20,6 +20,8 @@
                         'title'         => array( 'rule' => '', 'type' => 'text'),
                         'image'         => array( 'rule' => 'required', 'type' => 'image', 'show' => 'small_path')
                 ));   
+
+            $this->load->model('Page_image', 'crud_model');
 
             $this->set_option('rank_field', 'rank');
             $this->set_default_sort('rank');

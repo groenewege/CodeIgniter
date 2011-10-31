@@ -7,7 +7,7 @@
 		public function __construct()
     	{
         	parent::__construct();
-        	$this->crud_model = new Page_file();
+        	$this->load->model('Page_file', 'crud_model');   
         	$this->set_option('list', array('title'));
         	$this->set_option('object_actions', array(	'up' => array(   'label'   => 'gg_up', 
         															     'url'     => 'up' ),
