@@ -26,8 +26,7 @@
 
 ## pull from boilerplate
 
-	git fetch boilerplate
 	git checkout boilerplate
-	git rebase boilerplate/boilerplate
+	git pull boilerplate boilerplate
 	git checkout master
-	git rebase boilerplate
+	git merge boilerplate
