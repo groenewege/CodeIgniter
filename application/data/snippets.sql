@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.1.37-log)
 # Database: codeigniter
-# Generation Time: 2011-10-24 23:57:42 +0000
+# Generation Time: 2011-10-31 14:26:27 +0000
 # ************************************************************
 
 
@@ -20,12 +20,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table snippet
+# Dump of table snippets
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `snippet`;
+DROP TABLE IF EXISTS `snippets`;
 
-CREATE TABLE `snippet` (
+CREATE TABLE `snippets` (
   `id` smallint(11) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(50) NOT NULL DEFAULT '',
   `value` text NOT NULL,
@@ -35,17 +35,17 @@ CREATE TABLE `snippet` (
   UNIQUE KEY `code` (`code`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-LOCK TABLES `snippet` WRITE;
-/*!40000 ALTER TABLE `snippet` DISABLE KEYS */;
+LOCK TABLES `snippets` WRITE;
+/*!40000 ALTER TABLE `snippets` DISABLE KEYS */;
 
-INSERT INTO `snippet` (`id`, `code`, `value`, `info`, `type`)
+INSERT INTO `snippets` (`id`, `code`, `value`, `info`, `type`)
 VALUES
 	(1,'meta_title','CodeIgniter','website title','input'),
 	(2,'meta_description','CodeIgniter boilerplate website','website description','input'),
 	(3,'meta_keywords','code, igniter','website keywords','input'),
 	(4,'email','gunther@groenewege.com','email address','input');
 
-/*!40000 ALTER TABLE `snippet` ENABLE KEYS */;
+/*!40000 ALTER TABLE `snippets` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

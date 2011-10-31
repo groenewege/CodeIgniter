@@ -8,8 +8,6 @@ class Frontend extends MY_Controller {
         if (defined('ENVIRONMENT') && ENVIRONMENT == 'development') {
         	$this->output->enable_profiler(TRUE);
         }
-        $this->load->add_package_path(APPPATH.'third_party/gas_orm/');
-        $this->load->library('gas');
         $this->layout = "layouts/frontend";
     }
 
@@ -31,10 +29,10 @@ class Frontend extends MY_Controller {
      */
     private function _build_meta()
     {
-    	$snippet = new Snippet();
-    	$this->data['meta_title'] = $snippet->retrieve_by_key('meta_title');
-    	$this->data['meta_description'] = $snippet->retrieve_by_key('meta_description');
-    	$this->data['meta_keywords'] = $snippet->retrieve_by_key('meta_keywords');
+    	$this->load->model('Snippet');
+    	$this->data['meta_title'] = $this->Snippet->retrieve_by_key('meta_title');
+    	$this->data['meta_description'] = $this->Snippet->retrieve_by_key('meta_description');
+    	$this->data['meta_keywords'] = $this->Snippet->retrieve_by_key('meta_keywords');
 
     	$this->data['title'] = $this->data['meta_title'];
     	$this->data['section'] = strtolower(get_class($this));

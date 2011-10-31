@@ -20,7 +20,7 @@ Class Home extends Frontend {
 		$this->pagination->initialize($config);
 		$this->data['pagination'] 	= $this->pagination->create_links();
 
-        $page = new Page;
-        $this->data['pages'] = $page->all();
+        $this->load->model('Page');
+        $this->data['pages'] = $this->Page->get_all();
     }
 }

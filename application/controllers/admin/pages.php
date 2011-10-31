@@ -7,7 +7,7 @@
 		public function __construct()
     	{
         	parent::__construct();
-        	$this->crud_model = new Page();
+            $this->load->model('Page', 'crud_model');
         	$this->set_option('per_page', 3);
         	$this->set_option('list', array('title', 'created_at'));
         	$this->set_option('labels', array('created_at' => 'Date'));
