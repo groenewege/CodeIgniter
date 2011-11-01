@@ -30,3 +30,4 @@
 	git pull boilerplate boilerplate
 	git checkout master
 	git merge boilerplate
+	git submodule update
