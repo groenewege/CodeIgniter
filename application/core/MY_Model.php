@@ -1,102 +1,102 @@
 <?php
 /**
- * A base model to provide the basic CRUD 
- * actions for all models that inherit from it.
- *
- * @package CodeIgniter
- * @subpackage MY_Model
- * @link http://github.com/jamierumbelow/codeigniter-base-model
- * @author Jamie Rumbelow <http://jamierumbelow.net>
- * @modified Phil Sturgeon <http://philsturgeon.co.uk>
- * @modified Dan Horrigan <http://dhorrigan.com>
- * @modified Adam Jackett <http://darkhousemedia.com>
- * @copyright Copyright (c) 2011, Jamie Rumbelow <http://jamierumbelow.net>
- */
+* A base model to provide the basic CRUD 
+* actions for all models that inherit from it.
+*
+* @package CodeIgniter
+* @subpackage MY_Model
+* @link http://github.com/jamierumbelow/codeigniter-base-model
+* @author Jamie Rumbelow <http://jamierumbelow.net>
+* @modified Phil Sturgeon <http://philsturgeon.co.uk>
+* @modified Dan Horrigan <http://dhorrigan.com>
+* @modified Adam Jackett <http://darkhousemedia.com>
+* @copyright Copyright (c) 2011, Jamie Rumbelow <http://jamierumbelow.net>
+*/
 
 class MY_Model extends CI_Model {
 	
 	/**
-	 * The database table to use, only
-	 * set if you want to bypass the magic
-	 *
-	 * @var string
-	 */
+	* The database table to use, only
+	* set if you want to bypass the magic
+	*
+	* @var string
+	*/
 	protected $_table;
-		
+	
 	/**
-	 * The primary key, by default set to
-	 * `id`, for use in some functions.
-	 *
-	 * @var string
-	 */
+	* The primary key, by default set to
+	* `id`, for use in some functions.
+	*
+	* @var string
+	*/
 	protected $primary_key = 'id';
 	
 	/**
-	 * The relations to other models
-	 *
-	 * @var array
-	 */
+	* The relations to other models
+	*
+	* @var array
+	*/
 	public $relations = array();
 
 	/**
-	 * An array of functions to be called before
-	 * a record is created.
-	 *
-	 * @var array
-	 */
+	* An array of functions to be called before
+	* a record is created.
+	*
+	* @var array
+	*/
 	protected $before_create = array();
 	
 	/**
-	 * An array of functions to be called after
-	 * a record is created.
-	 *
-	 * @var array
-	 */
+	* An array of functions to be called after
+	* a record is created.
+	*
+	* @var array
+	*/
 	protected $after_create = array();
 	
 	/**
-	 * An array of functions to be called before
-	 * a record is retrieved.
-	 *
-	 * @var array
-	 */
+	* An array of functions to be called before
+	* a record is retrieved.
+	*
+	* @var array
+	*/
 	protected $before_get = array();
 	
 	/**
-	 * An array of functions to be called after
-	 * a record is retrieved.
-	 *
-	 * @var array
-	 */
+	* An array of functions to be called after
+	* a record is retrieved.
+	*
+	* @var array
+	*/
 	protected $after_get = array();
 
 	/**
-	 * An array of validation rules
-	 *
-	 * @var array
-	 */
+	* An array of validation rules
+	*
+	* @var array
+	*/
 	protected $validate = array();
 
 	/**
-	 * Skip the validation
-	 *
-	 * @var bool
-	 */
+	* Skip the validation
+	*
+	* @var bool
+	*/
 	protected $skip_validation = FALSE;
 
 	/**
-	 * Wrapper to __construct for when loading
-	 * class is a superclass to a regular controller,
-	 * i.e. - extends Base not extends Controller.
-	 * 
-	 * @return void
-	 */
+	* Wrapper to __construct for when loading
+	* class is a superclass to a regular controller,
+	* i.e. - extends Base not extends Controller.
+	* 
+	* @return void
+	*/
 	public function MY_Model() { $this->__construct(); }
 
 	/**
-	 * The class constructer, tries to guess
-	 * the table name.
-	 */
+	* The class constructer, tries to guess
+	* the table name.
+	*/
 	public function __construct() {
 		parent::__construct();
 		
@@ -111,48 +111,48 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Get a single record by creating a WHERE clause with
-	 * a value for your primary key
-	 *
-	 * @param string $primary_value The value of your primary key
-	 * @return object
-	 */
+	* Get a single record by creating a WHERE clause with
+	* a value for your primary key
+	*
+	* @param string $primary_value The value of your primary key
+	* @return object
+	*/
 	public function get($primary_value) {
 		$this->_run_before_get();
 		$row = $this->db->where($this->primary_key, $primary_value)
-						->get($this->_table)
-						->row(0, get_class($this));
+		->get($this->_table)
+		->row(0, get_class($this));
 		$this->_run_after_get($row);
 		return $row;
 	}
 	
 	/**
-	 * Get a single record by creating a WHERE clause by passing
-	 * through a CI AR where() call
-	 *
-	 * @param string $key The key to search by 
-	 * @param string $val The value of that key
-	 * @return object
-	 */
+	* Get a single record by creating a WHERE clause by passing
+	* through a CI AR where() call
+	*
+	* @param string $key The key to search by 
+	* @param string $val The value of that key
+	* @return object
+	*/
 	public function get_by() {
 		$where =& func_get_args();
 		$this->_set_where($where);
 		
 		$this->_run_before_get();
 		$row = $this->db->get($this->_table)
-						->row(0, get_class($this));
+		->row(0, get_class($this));
 		$this->_run_after_get($row);
 		return $row;
 	}
 	
 	/**
-	 * Similar to get(), but returns a result array of
-	 * many result objects.
-	 *
-	 * @param string $key The key to search by
-	 * @param string $values The value of that key
-	 * @return array
-	 */
+	* Similar to get(), but returns a result array of
+	* many result objects.
+	*
+	* @param string $key The key to search by
+	* @param string $values The value of that key
+	* @return array
+	*/
 	public function get_many($values) {
 		$this->db->where_in($this->primary_key, $values);
 		
@@ -160,13 +160,13 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Similar to get_by(), but returns a result array of
-	 * many result objects.
-	 *
-	 * @param string $key The key to search by
-	 * @param string $val The value of that key
-	 * @return array
-	 */
+	* Similar to get_by(), but returns a result array of
+	* many result objects.
+	*
+	* @param string $key The key to search by
+	* @param string $val The value of that key
+	* @return array
+	*/
 	public function get_many_by() {
 		$where =& func_get_args();
 		$this->_set_where($where);
@@ -175,26 +175,26 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Get all records in the database
-	 *
-	 * @return array
-	 */
+	* Get all records in the database
+	*
+	* @return array
+	*/
 	public function get_all() {
 		$this->_run_before_get();
 		$result = $this->db->get($this->_table)
-							->result(get_class($this));
+		->result(get_class($this));
 		$this->_run_after_get($result);
 		return $result;
 	}
 	
 	/**
-	 * Count the number of rows based on a WHERE
-	 * criteria
-	 *
-	 * @param string $key The key to search by
-	 * @param string $val The value of that key
-	 * @return integer
-	 */
+	* Count the number of rows based on a WHERE
+	* criteria
+	*
+	* @param string $key The key to search by
+	* @param string $val The value of that key
+	* @return integer
+	*/
 	public function count_by() {
 		$where =& func_get_args();
 		$this->_set_where($where);
@@ -203,75 +203,75 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Return a count of every row in the table
-	 *
-	 * @return integer
-	 */
+	* Return a count of every row in the table
+	*
+	* @return integer
+	*/
 	public function count_all() {
 		return $this->db->count_all($this->_table);
 	}
 
 	/**
-	 * Return a count of the rows in the table
-	 *
-	 * @return integer
-	 */
+	* Return a count of the rows in the table
+	*
+	* @return integer
+	*/
 	public function count_all_results() {
 		return $this->db->count_all_results($this->_table);
 	}
 
 	/**
-	 * Return information about every field in the table
-	 * @return array
-	 */
+	* Return information about every field in the table
+	* @return array
+	*/
 	public function field_data()
 	{
 		return $this->db->field_data($this->_table);
 	}
 
 	/**
-	 * Return the row with maximum value of a field
-	 * @param type $field 
-	 * @return type
-	 */
+	* Return the row with maximum value of a field
+	* @param type $field 
+	* @return type
+	*/
 	public function max($field)
 	{
 		$this->db->select_max($field)->from($this->_table)->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
-		   $row = $query->row(); 
-		   return (int) $row->$field;
+			$row = $query->row(); 
+			return (int) $row->$field;
 		} else {
 			return 0;
 		}
 	}
 
 	/**
-	 * Return the row with minimum value of a field
-	 * @param type $field 
-	 * @return type
-	 */
+	* Return the row with minimum value of a field
+	* @param type $field 
+	* @return type
+	*/
 	public function min($field)
 	{
 		$this->db->select_min($field)->from($this->_table)->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
-		   $row = $query->row(); 
-		   return (int) $row->$field;
+			$row = $query->row(); 
+			return (int) $row->$field;
 		} else {
 			return 0;
 		}
 	}
 
 	/**
-	 * first
-	 * 
-	 * Get first record
-	 *
-	 * @access	public
-	 * @param   string
-	 * @return	array  array of result(s) object
-	 */
+	* first
+	* 
+	* Get first record
+	*
+	* @access	public
+	* @param   string
+	* @return	array  array of result(s) object
+	*/
 	public function first($column = null)
 	{
 		$this->_run_before_get();
@@ -285,14 +285,14 @@ class MY_Model extends CI_Model {
 	}
 
 	/**
-	 * last
-	 * 
-	 * Get last record
-	 *
-	 * @access	public
-	 * @param   string
-	 * @return	array  array of result(s) object
-	 */
+	* last
+	* 
+	* Get last record
+	*
+	* @access	public
+	* @param   string
+	* @return	array  array of result(s) object
+	*/
 	public function last($column = null)
 	{
 		$this->_run_before_get();
@@ -306,13 +306,13 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Insert a new record into the database,
-	 * calling the before and after create callbacks.
-	 * Returns the insert ID.
-	 *
-	 * @param array $data Information
-	 * @return integer
-	 */
+	* Insert a new record into the database,
+	* calling the before and after create callbacks.
+	* Returns the insert ID.
+	*
+	* @param array $data Information
+	* @return integer
+	*/
 	public function insert($data, $skip_validation = FALSE) {
 		$valid = TRUE;
 		
@@ -322,7 +322,7 @@ class MY_Model extends CI_Model {
 
 		if($valid) {
 			$data = $this->_run_before_create($data);
-				$this->db->insert($this->_table, $data);
+			$this->db->insert($this->_table, $data);
 			$this->_run_after_create($data, $this->db->insert_id());
 			
 			return $this->db->insert_id();
@@ -332,12 +332,12 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Similar to insert(), just passing an array to insert
-	 * multiple rows at once. Returns an array of insert IDs.
-	 *
-	 * @param array $data Array of arrays to insert
-	 * @return array
-	 */
+	* Similar to insert(), just passing an array to insert
+	* multiple rows at once. Returns an array of insert IDs.
+	*
+	* @param array $data Array of arrays to insert
+	* @return array
+	*/
 	public function insert_many($data, $skip_validation = FALSE) {
 		$ids = array();
 		
@@ -349,12 +349,12 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Update a record, specified by an ID.
-	 *
-	 * @param integer $id The row's ID
-	 * @param array $array The data to update
-	 * @return bool
-	 */
+	* Update a record, specified by an ID.
+	*
+	* @param integer $id The row's ID
+	* @param array $array The data to update
+	* @return bool
+	*/
 	public function update($primary_value, $data, $skip_validation = FALSE) {
 		$valid = TRUE;
 		
@@ -364,21 +364,21 @@ class MY_Model extends CI_Model {
 
 		if ($valid) {
 			return $this->db->where($this->primary_key, $primary_value)
-							->set($data)
-							->update($this->_table);
+			->set($data)
+			->update($this->_table);
 		} else {
 			return FALSE;
 		}
 	}
 	
 	/**
-	 * Update a record, specified by $key and $val.
-	 *
-	 * @param string $key The key to update with
-	 * @param string $val The value
-	 * @param array $array The data to update
-	 * @return bool
-	 */
+	* Update a record, specified by $key and $val.
+	*
+	* @param string $key The key to update with
+	* @param string $val The value
+	* @param array $array The data to update
+	* @return bool
+	*/
 	public function update_by() {
 		$args =& func_get_args();
 		$data = array_pop($args);
@@ -386,69 +386,69 @@ class MY_Model extends CI_Model {
 		
 		if ($this->_run_validation($data)) {
 			return $this->db->set($data)
-							->update($this->_table);
+			->update($this->_table);
 		} else {
 			return FALSE;
 		}
 	}
 	
 	/**
-	 * Updates many records, specified by an array
-	 * of IDs.
-	 *
-	 * @param array $primary_values The array of IDs
-	 * @param array $data The data to update
-	 * @return bool
-	 */
+	* Updates many records, specified by an array
+	* of IDs.
+	*
+	* @param array $primary_values The array of IDs
+	* @param array $data The data to update
+	* @return bool
+	*/
 	public function update_many($primary_values, $data, $skip_validation) {
 		$valid = TRUE;
 		
 		if($skip_validation === FALSE) {
 			$valid = $this->_run_validation($data);
 		}
-			
+		
 		if($valid) {
 			return $this->db->where_in($this->primary_key, $primary_values)
-							->set($data)
-							->update($this->_table);
-		
+			->set($data)
+			->update($this->_table);
+			
 		} else {
 			return FALSE;
 		}
 	}
 	
 	/**
-	 * Updates all records
-	 *
-	 * @param array $data The data to update
-	 * @return bool
-	 */
+	* Updates all records
+	*
+	* @param array $data The data to update
+	* @return bool
+	*/
 	public function update_all($data)
 	{
 		return $this->db->set($data)
-						->update($this->_table);
+		->update($this->_table);
 	}
 	
 	/**
-	 * Delete a row from the database table by the
-	 * ID.
-	 *
-	 * @param integer $id 
-	 * @return bool
-	 */
+	* Delete a row from the database table by the
+	* ID.
+	*
+	* @param integer $id 
+	* @return bool
+	*/
 	public function delete($id) {
 		return $this->db->where($this->primary_key, $id)
-						->delete($this->_table);
+		->delete($this->_table);
 	}
 	
 	/**
-	 * Delete a row from the database table by the
-	 * key and value.
-	 *
-	 * @param string $key
-	 * @param string $value 
-	 * @return bool
-	 */
+	* Delete a row from the database table by the
+	* key and value.
+	*
+	* @param string $key
+	* @param string $value 
+	* @return bool
+	*/
 	public function delete_by() {
 		$where =& func_get_args();
 		$this->_set_where($where);
@@ -457,23 +457,23 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Delete many rows from the database table by 
-	 * an array of IDs passed.
-	 *
-	 * @param array $primary_values 
-	 * @return bool
-	 */
+	* Delete many rows from the database table by 
+	* an array of IDs passed.
+	*
+	* @param array $primary_values 
+	* @return bool
+	*/
 	public function delete_many($primary_values) {
 		return $this->db->where_in($this->primary_key, $primary_values)
-						->delete($this->_table);
+		->delete($this->_table);
 	}
 	
 	/**
-	 * Retrieve and generate a dropdown-friendly array of the data
-	 * in the table based on a key and a value.
-	 *
-	 * @return void
-	 */
+	* Retrieve and generate a dropdown-friendly array of the data
+	* in the table based on a key and a value.
+	*
+	* @return void
+	*/
 	function dropdown() {
 		$args =& func_get_args();
 		
@@ -485,7 +485,7 @@ class MY_Model extends CI_Model {
 		}
 		
 		$query = $this->db->select(array($key, $value))
-						  ->get($this->_table);
+		->get($this->_table);
 		
 		$options = array();
 		
@@ -497,80 +497,80 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Where
-	 *
-	 * Generates the WHERE portion of the query. Separates
-	 * multiple calls with AND
-	 *
-	 * @param	mixed $key
-	 * @param	mixed $value
-	 * @param 	bool $escape
-	 * @return	object
-	 */
+	* Where
+	*
+	* Generates the WHERE portion of the query. Separates
+	* multiple calls with AND
+	*
+	* @param	mixed $key
+	* @param	mixed $value
+	* @param 	bool $escape
+	* @return	object
+	*/
 	public function where($key, $value = NULL, $escape = TRUE) {
 		$this->db->where($key, $value, $escape);
 		return $this;
 	}
 
 	/**
-	 * Like
-	 *
-	 * Generates a %LIKE% portion of the query. Separates
-	 * multiple calls with AND
-	 *
-	 * @param	mixed 	$field
-	 * @param	mixed 	$match
-	 * @param  	string 	$side
-	 * @return	object
-	 */
+	* Like
+	*
+	* Generates a %LIKE% portion of the query. Separates
+	* multiple calls with AND
+	*
+	* @param	mixed 	$field
+	* @param	mixed 	$match
+	* @param  	string 	$side
+	* @return	object
+	*/
 	public function like($field, $match = '', $side = 'both') {
 		$this->db->like($field, $match, $side);
 		return $this;
 	}
 
 	/**
-	 * Orders the result set by the criteria,
-	 * using the same format as CI's AR library.
-	 *
-	 * @param string $criteria The criteria to order by
-	 * @return object
-	 * @since 1.1.2
-	 */
+	* Orders the result set by the criteria,
+	* using the same format as CI's AR library.
+	*
+	* @param string $criteria The criteria to order by
+	* @return object
+	* @since 1.1.2
+	*/
 	public function order_by($criteria, $order = 'ASC') {
 		$this->db->order_by($criteria, $order);
 		return $this;
 	}
 	
 	/**
-	 * Limits the result set by the integer passed.
-	 * Pass a second parameter to offset.
-	 *
-	 * @param integer $limit The number of rows
-	 * @param integer $offset The offset
-	 * @return object
-	 * @since 1.1.1
-	 */
+	* Limits the result set by the integer passed.
+	* Pass a second parameter to offset.
+	*
+	* @param integer $limit The number of rows
+	* @param integer $offset The offset
+	* @return object
+	* @since 1.1.1
+	*/
 	public function limit($limit, $offset = 0) {
 		$this->db->limit($limit, $offset);
 		return $this;
 	}
 
 	/**
-	 * Tells the class to skip the insert validation
-	 *
-	 * @return object
-	 */
+	* Tells the class to skip the insert validation
+	*
+	* @return object
+	*/
 	public function skip_validation() {
 		$this->skip_validation = TRUE;
 		return $this;
 	}
 	
 	/**
-	 * Runs the before create actions.
-	 *
-	 * @param array $data The array of actions
-	 * @return void
-	 */
+	* Runs the before create actions.
+	*
+	* @param array $data The array of actions
+	* @return void
+	*/
 	private function _run_before_create($data) {
 		foreach ($this->before_create as $method) {
 			$data = call_user_func_array(array($this, $method), array($data));
@@ -580,11 +580,11 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Runs the after create actions.
-	 *
-	 * @param array $data The array of actions
-	 * @return void
-	 */
+	* Runs the after create actions.
+	*
+	* @param array $data The array of actions
+	* @return void
+	*/
 	private function _run_after_create($data, $id) {
 		foreach ($this->after_create as $method) {
 			call_user_func_array(array($this, $method), array($data, $id));
@@ -592,10 +592,10 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Runs the before get actions.
-	 *
-	 * @return void
-	 */
+	* Runs the before get actions.
+	*
+	* @return void
+	*/
 	private function _run_before_get()
 	{
 		foreach ($this->before_get as $method)
@@ -605,10 +605,10 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Runs the after get actions.
-	 *
-	 * @return void
-	 */
+	* Runs the after get actions.
+	*
+	* @return void
+	*/
 	private function _run_after_get($result)
 	{
 		if($result === FALSE) return;
@@ -624,10 +624,10 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Runs validation on the passed data.
-	 *
-	 * @return bool
-	 */
+	* Runs validation on the passed data.
+	*
+	* @return bool
+	*/
 	private function _run_validation($data) {
 		if($this->skip_validation) {
 			return TRUE;
@@ -653,10 +653,10 @@ class MY_Model extends CI_Model {
 	}
 
 	/**
-	 * Fetches the table from the pluralised model name.
-	 *
-	 * @return void
-	 */
+	* Fetches the table from the pluralised model name.
+	*
+	* @return void
+	*/
 	private function _fetch_table() {
 		if ($this->_table == NULL) {
 			$class = preg_replace('/(_m|_model)?$/', '', get_class($this));
@@ -666,10 +666,10 @@ class MY_Model extends CI_Model {
 	}
 	
 	/**
-	 * Sets where depending on the number of parameters
-	 *
-	 * @return void
-	 */
+	* Sets where depending on the number of parameters
+	*
+	* @return void
+	*/
 	private function _set_where($params) {
 		if(count($params) == 1) {
 			$this->db->where($params[0]);
