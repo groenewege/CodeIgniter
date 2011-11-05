@@ -11,5 +11,6 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat.';
 $lang['gg_add_pages']				= 'add a new page';
+$lang['gg_pages_title_help']		= 'please select a nice title';
 
 $lang['gg_status']					= 'Publish';
