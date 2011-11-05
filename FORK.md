@@ -26,6 +26,7 @@
 
 ## pull from boilerplate
 
+	/* quit less.app */
 	git checkout boilerplate
 	git pull boilerplate boilerplate
 	git checkout master
