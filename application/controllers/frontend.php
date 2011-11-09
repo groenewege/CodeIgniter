@@ -27,7 +27,7 @@ class Frontend extends MY_Controller {
 	/**
 	* build the meta tags for the layout template
 	*/
-	private function _build_meta()
+	protected function _build_meta()
 	{
 		$this->load->model('Snippet');
 		$this->data['meta_title'] = $this->Snippet->retrieve_by_key('meta_title');

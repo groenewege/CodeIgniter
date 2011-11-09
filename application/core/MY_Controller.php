@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller {
 	* Load a view into a layout based on
 	* controller and method name
 	*/
-	private function _load_view() {
+	protected function _load_view() {
 		// Back out if we've explicitly set the view to FALSE
 		if ($this->view === FALSE) { return; }
 
