@@ -12,4 +12,4 @@
 	url = git@github.com:groenewege/Formbuilder.git
 [submodule "application/third_party/gg_admin"]
 	path = application/third_party/gg_admin
-	url = git@bitbucket.org:groenewege/gg_admin.git
+	url = git@groenewege.beanstalkapp.com:/gg_admin.git
