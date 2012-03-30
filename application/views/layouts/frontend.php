@@ -11,7 +11,7 @@
 	<meta name="author" content="Gunther Groenewege">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="/css/bootstrap.css">
-	<script src="/js/libs/modernizr-2.0.6.min.js"></script>
+	<script src="/js/libs/modernizr-2.5.3.custom.min.js"></script>
 </head>
 
 <body class="<?php echo htmlentities($section, ENT_QUOTES, 'utf-8'); ?>">
@@ -36,7 +36,7 @@
 	</div>
 
 	<?php if ($show_js): ?>
-		<script src="/js/libs/jquery-1.6.4.min.js"></script>
+		<script src="/js/libs/jquery-1.7.2.min.js"></script>
 		<script src="/js/script.js"></script>
 	<?php endif ?>
 
