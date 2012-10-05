@@ -1,3 +1,12 @@
+# working on the framework
+
+## pull from upstream codeigniter
+
+	git checkout 2.1-stable
+	git pull upstream 2.1-stable
+	git checkout boilerplate
+	git merge 2.1-stable
+
 # forking for a new project
 
 ## create local repo
