@@ -82,7 +82,7 @@ class MY_Model extends CI_Model {
 	*
 	* @var bool
 	*/
-	protected $skip_validation = FALSE;
+	protected $skip_validation = TRUE;
 
 	/**
 	* Wrapper to __construct for when loading
