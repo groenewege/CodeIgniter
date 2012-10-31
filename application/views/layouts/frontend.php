@@ -11,7 +11,6 @@
 	<meta name="author" content="Gunther Groenewege">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="/css/bootstrap.css">
-	<script src="/js/libs/modernizr-2.5.3.custom.min.js"></script>
 </head>
 
 <body class="<?php echo htmlentities($section, ENT_QUOTES, 'utf-8'); ?>">
@@ -22,7 +21,6 @@
 				<a class="brand" href="/">CodeIgniter Boilerplate</a>
 				<ul class="nav secondary-nav">
 					<li><?php echo anchor('admin/home/index', 'admin'); ?></li>
-					<li><a href="#" id="toggleButton">profiler</a></li>
 				</ul>
 			</div>
 		</div>
@@ -34,11 +32,6 @@
 			<p>Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 		</footer>
 	</div>
-
-	<?php if ($show_js): ?>
-		<script src="/js/libs/jquery-1.7.2.min.js"></script>
-		<script src="/js/script.js"></script>
-	<?php endif ?>
 
 </body>
 </html>
