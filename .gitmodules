@@ -1,12 +1,12 @@
 [submodule "application/third_party/bootstrap"]
 	path = application/third_party/bootstrap
-	url = git://github.com/twitter/bootstrap.git
+	url = https://github.com/twitter/bootstrap.git
 [submodule "application/third_party/spark_menu"]
 	path = application/third_party/spark_menu
-	url = git@github.com:groenewege/Spark-Menu.git
+	url = https://github.com/groenewege/Spark-Menu.git
 [submodule "application/third_party/formbuilder"]
 	path = application/third_party/formbuilder
-	url = git@github.com:groenewege/Formbuilder.git
+	url = https://github.com/groenewege/Formbuilder.git
 [submodule "application/third_party/gg_admin"]
 	path = application/third_party/gg_admin
 	url = git@groenewege.beanstalkapp.com:/groenewege/gg_admin.git
