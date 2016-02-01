@@ -2,10 +2,10 @@
 
 ## pull from upstream codeigniter
 
-	git checkout 2.1-stable
-	git pull upstream 2.1-stable
+	git checkout 2.2-stable
+	git pull upstream 2.2-stable
 	git checkout boilerplate
-	git merge 2.1-stable
+	git merge 2.2-stable
 
 # forking for a new project
 
